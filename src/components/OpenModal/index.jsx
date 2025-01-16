@@ -1,25 +1,14 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 
 function OpenModal() {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef();
 
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener("keydown", handleEsc);
-
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
-
-  const handleClose = () => {
+  function handleClose() {
     setIsOpen(false);
   };
 
-  const handleOpen = () => {
+  function handleOpen() {
     setIsOpen(true);
   };
 
